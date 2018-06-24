@@ -17,4 +17,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Title" parent="TextAppearance.AppCompat.Title" />
+
+    <style name="Body" parent="TextAppearance.AppCompat.Medium" />
+
 </resources>
