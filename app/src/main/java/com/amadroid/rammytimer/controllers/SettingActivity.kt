@@ -1,7 +1,8 @@
-package com.amadroid.rammytimer
+package com.amadroid.rammytimer.controllers
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.amadroid.rammytimer.R
 
 class SettingActivity: AppCompatActivity() {
 

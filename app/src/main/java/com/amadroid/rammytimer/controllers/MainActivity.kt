@@ -1,12 +1,11 @@
-package com.amadroid.rammytimer
+package com.amadroid.rammytimer.controllers
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
-import com.amadroid.rammytimer.fragment.SettingFragment
+import com.amadroid.rammytimer.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        counterView.stopCountDown()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

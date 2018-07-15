@@ -1,4 +1,4 @@
-package com.amadroid.rammytimer.fragment
+package com.amadroid.rammytimer.controllers.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
