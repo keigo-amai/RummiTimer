@@ -8,7 +8,7 @@
     tools:showIn="@layout/activity_setting">
 
     <LinearLayout
-        android:id="@+id/period_container"
+        android:id="@+id/periodContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -23,12 +23,10 @@
             style="@style/Title"
             android:text="タイマー" />
 
-        <TextView
-            android:id="@+id/set_period"
+        <Spinner
+            android:id="@+id/setPeriod"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Body"
-            android:text="1分" />
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -37,34 +35,34 @@
         android:layout_height="1dp"
         android:background="@color/divider_gray"/>
 
-    <FrameLayout
-        android:id="@+id/beep_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+    <!--<FrameLayout-->
+        <!--android:id="@+id/beep_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:paddingLeft="20dp"-->
+        <!--android:paddingRight="20dp">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            style="@style/Title"
-            android:text="5秒前からビープ音を鳴らす" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="left|center_vertical"-->
+            <!--style="@style/Title"-->
+            <!--android:text="5秒前からビープ音を鳴らす" />-->
 
-        <Switch
-            android:id="@+id/beep_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical" />
+        <!--<Switch-->
+            <!--android:id="@+id/beep_switch"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right|center_vertical" />-->
 
-    </FrameLayout>
+    <!--</FrameLayout>-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divider_gray"/>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/divider_gray"/>-->
 
     <LinearLayout
         android:id="@+id/version_container"

@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">RammyTimer</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="durations_text">
+        <item>30秒</item>
+        <item>1分</item>
+        <item>2分</item>
+        <item>3分</item>
+        <item>5分</item>
+    </string-array>
 </resources>
