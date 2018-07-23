@@ -17,8 +17,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onStart() {
+        super.onStart()
+
+        counterView.resetCountDown()
+    }
+
+    override fun onStop() {
+        super.onStop()
         counterView.stopCountDown()
     }
 

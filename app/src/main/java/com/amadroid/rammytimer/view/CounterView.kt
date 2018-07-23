@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.amadroid.rammytimer.R
+import com.amadroid.rammytimer.repositories.Setting
 import kotlinx.android.synthetic.main.content_main.view.*
 
 /**
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.content_main.view.*
 
 class CounterView: FrameLayout {
 
-    private var time: Int = 60
+    private var time: Int = Setting.getPeriod(context!!)
     private var isStarted = false
     private val delayMillis = 1000L
 
@@ -24,7 +25,7 @@ class CounterView: FrameLayout {
         time--
         counterText.text = "$time"
         if (time > 0) {
-            startCountDown()
+            countDown()
         } else {
             isStarted = false
         }
@@ -40,7 +41,7 @@ class CounterView: FrameLayout {
 
         counterText.setOnClickListener {
             if (!isStarted) {
-                startCountDown()
+                countDown()
                 Snackbar.make(this, "Count down start!!", Snackbar.LENGTH_SHORT).show()
             } else {
                 stopCountDown()
@@ -49,12 +50,18 @@ class CounterView: FrameLayout {
         }
     }
 
+    internal fun resetCountDown() {
+        stopCountDown()
+        time = Setting.getPeriod(context!!)
+        counterText.text = "Start!!"
+    }
+
     internal fun stopCountDown() {
         countDownHandler.removeCallbacksAndMessages(null)
         isStarted = false
     }
 
-    private fun startCountDown() {
+    private fun countDown() {
         countDownHandler.postDelayed(countDownTask, delayMillis)
         isStarted = true
     }

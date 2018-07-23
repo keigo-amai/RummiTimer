@@ -1,5 +1,6 @@
 package com.amadroid.rammytimer.repositories
 
+import android.content.Context
 import com.kazakago.preferhythm.PrefClass
 import com.kazakago.preferhythm.PrefField
 
@@ -10,12 +11,14 @@ import com.kazakago.preferhythm.PrefField
 class Setting {
 
     companion object {
-        val periodVariation: Array<Long> = arrayOf(30, 60, 120, 180, 300)
+        private val periodVariation: Array<Int> = arrayOf(30, 60, 120, 180, 300)
+
+        fun getPeriod(context: Context) = periodVariation[SettingManager(context).period]
     }
 
     @PrefField
     var period: Int = 1
 
-    @PrefField
-    var shouldBeep: Boolean = true
+//    @PrefField
+//    var shouldBeep: Boolean = true
 }
