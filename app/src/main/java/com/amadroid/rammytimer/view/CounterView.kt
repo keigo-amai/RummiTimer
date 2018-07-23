@@ -22,9 +22,11 @@ class CounterView: FrameLayout {
 
     private val countDownHandler = Handler()
     private val countDownTask = {
-        time--
-        counterText.text = "$time"
         if (time > 0) {
+            time--
+            val min = time / 60
+            val timeStr = if (min > 0) String.format("%d:%d", min, time % 60) else "$time"
+            counterText.text = timeStr
             countDown()
         } else {
             isStarted = false
