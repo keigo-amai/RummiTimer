@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Title"
-            android:text="バージョン 0.0.1" />
+            android:text="バージョン 0.0.2" />
 
     </LinearLayout>
 
