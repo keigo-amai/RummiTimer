@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.CompoundButton
 import com.amadroid.rammytimer.BuildConfig
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.repositories.SettingManager
@@ -14,18 +15,34 @@ import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingFragment : Fragment() {
 
+    private lateinit var settingManager: SettingManager
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_setting, null, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        settingManager = SettingManager(activity!!)
+
         initSpinner()
+
+        initBeepSwitch()
+
+        versionText.text = "バージョン ${BuildConfig.VERSION_NAME}"
+    }
+
+    private fun initBeepSwitch() {
+        val shouldBeep = settingManager.shouldBeep
+        beepSwitch.isChecked = shouldBeep
+
+        beepSwitch.setOnCheckedChangeListener { _, isChecked ->
+            settingManager.shouldBeep = isChecked
+            settingManager.apply()
+        }
     }
 
     private fun initSpinner() {
-
-        val settingManager = SettingManager(context!!)
         val period = settingManager.period
 
         val spinnerAdapter = ArrayAdapter.createFromResource(activity, R.array.durations_text, android.R.layout.simple_spinner_item)
@@ -46,7 +63,5 @@ class SettingFragment : Fragment() {
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {}
         }
-
-        versionText.text = "バージョン ${BuildConfig.VERSION_NAME}"
     }
 }

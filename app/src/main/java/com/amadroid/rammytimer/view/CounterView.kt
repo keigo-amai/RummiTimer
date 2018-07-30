@@ -1,6 +1,8 @@
 package com.amadroid.rammytimer.view
 
 import android.content.Context
+import android.media.AudioManager
+import android.media.ToneGenerator
 import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.util.AttributeSet
@@ -8,6 +10,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.repositories.Setting
+import com.amadroid.rammytimer.repositories.SettingManager
 import kotlinx.android.synthetic.main.content_main.view.*
 
 /**
@@ -28,10 +31,23 @@ class CounterView: FrameLayout {
             val timeStr = if (min > 0) String.format("%d:%d", min, time % 60) else "$time"
             counterText.text = timeStr
             countDown()
+
+            if (settingManager.shouldBeep) {
+                if (time == 0) {
+                    toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP2)
+                } else if (time <= 5) {
+                    toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP)
+                }
+            }
+
         } else {
             isStarted = false
         }
     }
+
+    private val settingManager: SettingManager
+
+    private val toneGenerator = ToneGenerator(AudioManager.STREAM_SYSTEM, ToneGenerator.MAX_VOLUME)
 
     constructor(context: Context?): super(context)
     constructor(context: Context?, attrs: AttributeSet?): super(context, attrs)
@@ -50,6 +66,8 @@ class CounterView: FrameLayout {
                 Snackbar.make(this, "Count down stop!!", Snackbar.LENGTH_SHORT).show()
             }
         }
+
+        settingManager = SettingManager(context)
     }
 
     internal fun resetCountDown() {

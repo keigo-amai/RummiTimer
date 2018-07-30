@@ -19,6 +19,6 @@ class Setting {
     @PrefField
     var period: Int = 1
 
-//    @PrefField
-//    var shouldBeep: Boolean = true
+    @PrefField
+    var shouldBeep: Boolean = true
 }
