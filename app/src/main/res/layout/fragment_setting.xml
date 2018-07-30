@@ -74,10 +74,10 @@
         android:paddingRight="20dp">
 
         <TextView
+            android:id="@+id/versionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Title"
-            android:text="バージョン 0.0.2" />
+            style="@style/Title"/>
 
     </LinearLayout>
 

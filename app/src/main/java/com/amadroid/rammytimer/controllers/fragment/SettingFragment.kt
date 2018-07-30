@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.amadroid.rammytimer.BuildConfig
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.repositories.SettingManager
 import kotlinx.android.synthetic.main.fragment_setting.*
@@ -45,5 +46,7 @@ class SettingFragment : Fragment() {
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {}
         }
+
+        versionText.text = "バージョン ${BuildConfig.VERSION_NAME}"
     }
 }

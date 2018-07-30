@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RammyTimer</string>
+    <string name="app_name">RummiTimer</string>
     <string name="action_settings">Settings</string>
 
     <string-array name="durations_text">
