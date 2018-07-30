@@ -73,7 +73,7 @@ class CounterView: FrameLayout {
     internal fun resetCountDown() {
         stopCountDown()
         time = Setting.getPeriod(context!!)
-        counterText.text = "Start!!"
+        counterText.text = "Start!"
     }
 
     internal fun stopCountDown() {
