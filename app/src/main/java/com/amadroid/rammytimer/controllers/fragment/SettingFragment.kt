@@ -33,17 +33,6 @@ class SettingFragment : Fragment() {
         binding.viewModel = viewModel
 
         initSpinner()
-        initBeepSwitch()
-    }
-
-    private fun initBeepSwitch() {
-        val shouldBeep = settingManager.shouldBeep
-        beepSwitch.isChecked = shouldBeep
-
-        beepSwitch.setOnCheckedChangeListener { _, isChecked ->
-            settingManager.shouldBeep = isChecked
-            settingManager.apply()
-        }
     }
 
     private fun initSpinner() {
