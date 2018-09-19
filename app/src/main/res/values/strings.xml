@@ -9,4 +9,8 @@
         <item>3分</item>
         <item>5分</item>
     </string-array>
+
+    <!-- Setting -->
+    <string name="format_version">バージョン %s</string>
+
 </resources>
