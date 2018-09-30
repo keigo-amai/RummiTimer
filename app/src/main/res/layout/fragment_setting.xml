@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
 
         <variable
@@ -11,7 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         tools:context=".controllers.SettingActivity"
         tools:showIn="@layout/activity_setting">
@@ -35,7 +36,10 @@
             <Spinner
                 android:id="@+id/periodComponent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:selection="@{viewModel.period}"
+                android:onItemSelected="@{(p, v, pos, id) -> viewModel.onPeriodSelected(pos)}"
+                android:adapter="@{viewModel.spinnerAdapter}"/>
 
         </LinearLayout>
 
