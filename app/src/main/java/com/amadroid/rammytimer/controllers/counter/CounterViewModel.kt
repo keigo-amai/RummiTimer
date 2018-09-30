@@ -22,6 +22,7 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
     val timeObservable = MutableLiveData<String>()
 
     private var time = 0
+    private var originalTime = 0
     private var isStarted = false
     var showToastAction: ((String) -> Unit)? = null
 
@@ -53,7 +54,7 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
 
     fun onCounterViewClicked() {
         if (!isStarted) {
-            startCountDown()
+            countDown()
             showToastAction?.invoke("Count down start!!")
         } else {
             stopCountDown()
@@ -63,17 +64,17 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
 
     fun resetCountDown() {
         stopCountDown()
-        time = Setting.getPeriod(getApplication())
-        timeObservable.value = "Start!"
+        val timeToSet = Setting.getPeriod(getApplication())
+        if (originalTime != timeToSet) {
+            originalTime = timeToSet
+            time = timeToSet
+            timeObservable.value = "Start!"
+        }
     }
 
     fun stopCountDown() {
         countDownHandler.removeCallbacksAndMessages(null)
         isStarted = false
-    }
-
-    private fun startCountDown() {
-        countDown()
     }
 
     private fun countDown() {

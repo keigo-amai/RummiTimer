@@ -41,6 +41,11 @@ class CounterFragment: Fragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.resetCountDown()
+    }
+
     override fun onStop() {
         super.onStop()
         viewModel.stopCountDown()
