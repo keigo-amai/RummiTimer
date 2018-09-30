@@ -19,13 +19,14 @@
 
         <LinearLayout
             android:id="@+id/periodContainer"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:onClick="@{v -> viewModel.invokeChildsClick(v)}">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,11 +36,12 @@
 
             <Spinner
                 android:id="@+id/periodComponent"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
                 android:selection="@{viewModel.period}"
                 android:onItemSelected="@{(p, v, pos, id) -> viewModel.onPeriodSelected(pos)}"
-                android:adapter="@{viewModel.spinnerAdapter}"/>
+                android:adapter="@{viewModel.spinnerAdapter}" />
 
         </LinearLayout>
 
@@ -55,7 +57,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:paddingRight="20dp"
+            android:onClick="@{v -> viewModel.invokeChildsClick(v)}">
 
             <TextView
                 android:layout_width="wrap_content"

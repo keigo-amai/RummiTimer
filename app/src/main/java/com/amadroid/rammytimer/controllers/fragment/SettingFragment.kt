@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.amadroid.rammytimer.BuildConfig
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.databinding.FragmentSettingBinding
-import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingFragment : Fragment() {
 
@@ -25,13 +24,6 @@ class SettingFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = SettingViewModel(activity!!, BuildConfig.VERSION_NAME)
         binding.viewModel = viewModel
-
-        initSpinner()
     }
 
-    private fun initSpinner() {
-        periodContainer.setOnClickListener {
-            periodComponent.performClick()
-        }
-    }
 }

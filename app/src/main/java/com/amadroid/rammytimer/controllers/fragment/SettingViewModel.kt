@@ -1,6 +1,8 @@
 package com.amadroid.rammytimer.controllers.fragment
 
 import android.content.Context
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.repositories.SettingManager
@@ -40,5 +42,15 @@ class SettingViewModel(context: Context, val version: String) {
     fun onShouldBeepChanged(shouldBeep: Boolean) {
         settingManager.shouldBeep = shouldBeep
         settingManager.apply()
+    }
+
+    fun invokeChildsClick(parentView: View) {
+        if (parentView is ViewGroup) {
+            for (i: Int in 0..parentView.childCount) {
+                parentView.getChildAt(i)?.let {
+                    it.performClick()
+                }
+            }
+        }
     }
 }
