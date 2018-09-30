@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.amadroid.rammytimer.controllers.fragment.SettingViewModel"/>
+            type="com.amadroid.rammytimer.controllers.setting.SettingViewModel"/>
 
     </data>
 
@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:id="@+id/periodContainer"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -36,7 +36,7 @@
 
             <Spinner
                 android:id="@+id/periodComponent"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
                 android:selection="@{viewModel.period}"

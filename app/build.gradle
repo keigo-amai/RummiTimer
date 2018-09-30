@@ -34,6 +34,9 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:27.1.1'
+    // Android Architecture Components
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     implementation "com.kazakago.preferhythm:preferhythm:$preferhythmVersion"
     kapt "com.kazakago.preferhythm:preferhythm-processor:$preferhythmVersion"
     testImplementation 'junit:junit:4.12'

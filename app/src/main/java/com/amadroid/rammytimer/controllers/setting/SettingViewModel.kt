@@ -1,4 +1,4 @@
-package com.amadroid.rammytimer.controllers.fragment
+package com.amadroid.rammytimer.controllers.setting
 
 import android.content.Context
 import android.view.View
@@ -47,9 +47,7 @@ class SettingViewModel(context: Context, val version: String) {
     fun invokeChildsClick(parentView: View) {
         if (parentView is ViewGroup) {
             for (i: Int in 0..parentView.childCount) {
-                parentView.getChildAt(i)?.let {
-                    it.performClick()
-                }
+                parentView.getChildAt(i)?.performClick()
             }
         }
     }

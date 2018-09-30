@@ -15,9 +15,9 @@
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <fragment
-        android:id="@+id/setting_fragment"
+        android:id="@+id/settingFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.amadroid.rammytimer.controllers.fragment.SettingFragment"/>
+        android:name="com.amadroid.rammytimer.controllers.setting.SettingFragment"/>
 
 </LinearLayout>

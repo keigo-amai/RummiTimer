@@ -1,4 +1,4 @@
-package com.amadroid.rammytimer.controllers.fragment
+package com.amadroid.rammytimer.controllers.setting
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
