@@ -26,7 +26,7 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
     var showToastAction: ((String) -> Unit)? = null
 
     private val countDownHandler = Handler()
-    private val countDownTask = {
+    private val countDownTask:() -> Unit = {
         if (time > 0) {
             time--
             val min = time / 60
@@ -34,14 +34,14 @@ class CounterViewModel(application: Application): AndroidViewModel(application) 
             timeObservable.value = timeStr
             countDown()
 
-            if (settingManager.shouldBeep) {
-                if (time == 0) {
-                    toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP2)
-                } else if (time <= 5) {
-                    toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP)
+            when(time) {
+                0 -> toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP2)
+                in 1..5 -> {
+                    if (settingManager.shouldBeep) {
+                        toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP)
+                    }
                 }
             }
-
         } else {
             isStarted = false
         }
