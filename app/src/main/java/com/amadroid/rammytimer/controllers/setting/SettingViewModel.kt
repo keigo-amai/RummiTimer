@@ -1,18 +1,22 @@
 package com.amadroid.rammytimer.controllers.setting
 
-import android.content.Context
+import android.app.Application
+import android.arch.lifecycle.AndroidViewModel
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.amadroid.rammytimer.BuildConfig
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.repositories.SettingManager
 
 /**
  * Created by Keigo Amai on 2018/09/19.
  */
-class SettingViewModel(context: Context, val version: String) {
+class SettingViewModel(application: Application): AndroidViewModel(application) {
 
-    private val settingManager: SettingManager = SettingManager(context)
+    private val settingManager: SettingManager = SettingManager(application)
+
+    val versionName = BuildConfig.VERSION_NAME
 
     var period: Int = 0
         get() = settingManager.period
@@ -29,7 +33,7 @@ class SettingViewModel(context: Context, val version: String) {
         }
 
     val spinnerAdapter: ArrayAdapter<CharSequence>
-            = ArrayAdapter.createFromResource(context, R.array.durations_text, android.R.layout.simple_spinner_item)
+            = ArrayAdapter.createFromResource(application, R.array.durations_text, android.R.layout.simple_spinner_item)
             .apply {
                 setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             }

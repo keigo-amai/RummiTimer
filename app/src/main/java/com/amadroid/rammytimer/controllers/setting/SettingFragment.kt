@@ -1,12 +1,12 @@
 package com.amadroid.rammytimer.controllers.setting
 
+import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.amadroid.rammytimer.BuildConfig
 import com.amadroid.rammytimer.R
 import com.amadroid.rammytimer.databinding.FragmentSettingBinding
 
@@ -22,7 +22,7 @@ class SettingFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = SettingViewModel(activity!!, BuildConfig.VERSION_NAME)
+        viewModel = ViewModelProviders.of(this).get(SettingViewModel::class.java)
         binding.viewModel = viewModel
     }
 
